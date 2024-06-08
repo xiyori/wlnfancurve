@@ -1,7 +1,16 @@
 [time]
+# How many seconds the script should wait until checking for a change in temps
 interval = 7
+# Minimum temperature delta in degrees for attempting to change fan speeds
 hysteresis = 7
 
+# By default it's set up so that when the temp is less than or equal to 30
+#  degrees, the fan speed will be set to 0%. Next, if the temp is between 30
+#  and 40, the fan speed should be set to 30%, etc.
+# The last temperature value will be the maximum temperature before 100% fan
+#  speed will be set
+# You can make the array as big or as small as you require, as long as they
+#  both end up being the same size
 [curve]
 fan_curve  = [0,  30, 40, 52, 64, 76, 89]
 temp_curve = [30, 40, 50, 59, 65, 70, 75]
