@@ -1,0 +1,7 @@
+[time]
+interval = 7
+hysteresis = 7
+
+[curve]
+fan_curve  = [0,  30, 40, 52, 64, 76, 89]
+temp_curve = [30, 40, 50, 59, 65, 70, 75]
