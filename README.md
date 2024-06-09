@@ -27,6 +27,8 @@ source nvml/bin/activate  # or activate.fish for fish
 pip install nvidia-ml-py
 ```
 
+Alternatively, install the package directly in the system Python (not recommended).
+
 ## How to use
 
 The config file specifies some global parameters and a fan curve. Please refer to the [file](config) for more info. The script supports multiple GPUs, but the curve is shared among all of them.
@@ -37,14 +39,18 @@ After editing the config run the script with admin privileges
 python wlnfancurve.py  # put sudo here
 ```
 
-(Optional) Run the script at boot by installing a systemd unit. Copy configuration and service files
+### (Optional) Run the script at boot by installing a systemd unit
+
+Install `nvidia-ml-py` package in the system Python. It is recommended to use your distro's package manager instead of `pip`. Copy script, configuration and service files (admin privileges required)
 
 ```bash
+mkdir /usr/local/bin/wlnfancurve
+cp {wlnfancurve.py,nvml_context.py} /usr/local/bin/wlnfancurve/
 cp config /etc/wlnfancurve.conf
 cp wlnfancurve.service /usr/lib/systemd/system/
 ```
 
-Inspect the copied service file and change paths for your user. Enable / start the service
+Enable / start the service
 
 ```bash
 systemctl enable wlnfancurve.service
