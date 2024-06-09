@@ -4,6 +4,8 @@ import configparser
 import json
 import time
 import ctypes
+import signal
+import sys
 
 from nvml_context import manage_nvml, manage_fans, GpuInfo
 
@@ -13,6 +15,11 @@ class UnsupportedDriverVersion(Exception):
 
 
 def main():
+    def sigterm_handler(signum, frame):
+        sys.exit()
+
+    signal.signal(signal.SIGTERM, sigterm_handler)
+
     parser = argparse.ArgumentParser(
         prog='wlnfancurve',
         description='Control Nvidia GPU fan speed in Wayland'
