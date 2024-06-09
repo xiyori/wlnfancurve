@@ -5,7 +5,7 @@ After=graphical.target
 Requires=graphical.target
 
 [Service]
-ExecStart=/usr/bin/python -u /usr/local/bin/wlnfancurve/wlnfancurve.py -c /etc/wlnfancurve.conf
+ExecStart=/usr/bin/python -u /usr/bin/wlnfancurve/wlnfancurve.py -c /etc/wlnfancurve.conf
 
 [Install]
 WantedBy=graphical.target

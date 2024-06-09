@@ -19,7 +19,7 @@ git clone https://github.com/xiyori/wlnfancurve
 cd wlnfancurve
 ```
 
-2. Create a Python virtual environment and install dependencies
+2. Install the latest NVIDIA proprietary driver. Create a Python virtual environment and install dependencies
 
 ```bash
 python -m venv nvml
@@ -44,8 +44,8 @@ python wlnfancurve.py  # put sudo here
 Install `nvidia-ml-py` package in the system Python. It is recommended to use your distro's package manager instead of `pip`. Copy script, configuration and service files (admin privileges required)
 
 ```bash
-mkdir /usr/local/bin/wlnfancurve
-cp {wlnfancurve.py,nvml_context.py} /usr/local/bin/wlnfancurve/
+mkdir /usr/bin/wlnfancurve
+cp {wlnfancurve.py,nvml_context.py} /usr/bin/wlnfancurve/
 cp config /etc/wlnfancurve.conf
 cp wlnfancurve.service /usr/lib/systemd/system/
 ```
