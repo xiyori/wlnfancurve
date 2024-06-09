@@ -12,6 +12,10 @@ NVML GPU Control is too complex and has many features that I don't really need, 
 
 ## Installation
 
+On Arch Linux, [wlnfancurve](https://aur.archlinux.org/packages/wlnfancurve) AUR package is available; install it with your favorite AUR helper. Inspect and edit `/etc/wlnfancurve.conf` and enable / start a systemd `wlnfancurve.service`.
+
+### Manual install
+
 1. Clone the repo
 
 ```bash
@@ -35,11 +39,25 @@ The config file specifies some global parameters and a fan curve. Please refer t
 
 After editing the config run the script with admin privileges
 
+#### AUR version
+
 ```bash
-python wlnfancurve.py  # put sudo here
+systemctl start wlnfancurve.service
 ```
 
-### (Optional) Run the script at boot by installing a systemd unit
+#### Manual
+
+```bash
+python wlnfancurve.py
+```
+
+## (Optional) Run the script at boot by installing a systemd unit
+
+#### AUR version
+
+There is no need to copy anything, simply enable `wlnfancurve.service`.
+
+#### Manual
 
 Install `nvidia-ml-py` package in the system Python. It is recommended to use your distro's package manager instead of `pip`. Copy script, configuration and service files (admin privileges required)
 
